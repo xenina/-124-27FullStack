@@ -1,0 +1,141 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Information</title>
+<link href="global.css" rel="stylesheet">
+
+<style>
+.subform {
+  font-size: 1.2em;
+  color: white;
+  font-family:Tahoma, sans-serif;	
+}
+.subform .label {
+  display: inline-block;
+  width: 200px;
+  vertical-align: top;
+    text-align: right;
+  margin-right: 10px;
+  font-weight: bold;
+  color: rgba(255,255,255,.5);
+}
+
+.subform input[type="submit"] {  
+  margin-left: 220px;
+}
+
+.subform input[type="submit"] {  
+  margin-left: 220px;
+  padding: 10px 25px;
+  font-size: 1em;
+  color: white;
+  background: rgba(255,255,255,.1);
+  border: none;
+  border-radius: 5px;
+}
+
+.subform select {
+	font-size: 1.2em;
+}
+
+.subform input[type="text"], .subform input[type="email"], .subform textarea {
+	font-size: 1.2em;
+	color: rgb(255,255,255,1);
+	border-radius: 5px;
+	border: none;
+	background-color: rgba(255,255,255,.5);
+box-shadow: inset 0 0 10px rgba(255,255,255,.75);
+	width: 500px;
+	padding: 5px;	
+}
+
+.subform input[type="text"]:focus, .subform input[type="email"]:focus, .subform textarea:focus {
+  background-color: white;
+  color: black;
+}
+
+</style>
+
+</head>
+<body>
+<script>
+function emailValidation(value) {
+
+let t = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+return t.test(value);
+
+}
+
+</script>
+
+<script>
+	function valid(form){
+		var error = false;
+		var email = form.email.value;
+		var name = form.name.value;
+		var comments = form.comments.value;
+			if(email == "" || email == " "){
+			error = "You did not enter your email";
+		}
+		  else if (name == ""){
+		    error = "You did not enter your name";
+		  }
+		  else if (comments == ""){
+		    error = "You did not enter your comments";
+		  }
+		    if(error){
+		        alert(error);
+		    }	
+	}	
+</script>
+
+
+<h1>Reader Subscription Form</h1>
+<form id="form"  method="post" name="">
+	<p>
+		<label>What is your name?</label>
+		<input type="text" name="name" id="name" />
+		
+	</p>
+	<p>
+		<label>What is your email address?</label>
+		<input type="email" name="email" id="email" >
+	</p>
+	<p><span class="label">Rate your apartment farming skills</span>
+        
+		<label>
+			<input name="skill" type="radio" value="novice" >
+			Novice</label>
+		<label>
+			<input name="skill" type="radio" value="intermediate">
+			Intermediate</label>
+		<label>
+			<input name="skill" type="radio" value="advanced">
+			Advanced</label>
+			
+	</p>
+	<p>
+		<label for="refer" class="label">Where did you hear about us? </label>
+		<select name="refer" id="refer" >
+			<option value="null">Select</option>
+			<option value="1">Friend</option>
+			<option value="2">Internet</option>
+			<option value="3">Paper</option>
+			<option value="4">Other</option>
+		</select>
+	</p>
+	<p>
+		<label>Additional comments </label>
+		<textarea <input type="text" name="comments" cols="35" rows="4" id="comments" /></textarea>
+	</p>
+	<p>
+		
+		<input type="submit" value="Subscribe" onclick="valid(document.getElementById('form'))"> 
+		
+	</p>
+</form>
+
+</body>
+</html>
