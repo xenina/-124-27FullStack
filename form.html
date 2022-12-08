@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="charset=UTF-8">
 <title>Information</title>
 <link href="global.css" rel="stylesheet">
 
@@ -60,26 +60,20 @@ box-shadow: inset 0 0 10px rgba(255,255,255,.75);
 </head>
 <body>
 <script>
-function emailValidation(value) {
-
-let t = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-
-return t.test(value);
-
+function ValidMail() {
+    let re =  /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+	let myMail = document.getElementById('email').value;
+     let valid = re.test(myMail);
+	if(!valid){ 
+	 alert('Адрес эл. почты введен неправильно!');
+	 return valid;
 }
-
-</script>
-
-<script>
-	function valid(form){
-		var error = false;
-		var email = form.email.value;
-		var name = form.name.value;
-		var comments = form.comments.value;
-			if(email == "" || email == " "){
-			error = "You did not enter your email";
-		}
-		  else if (name == ""){
+}
+function valid(form){
+		let error = false;
+		let name = form.name.value;
+		let comments = form.comments.value;
+		if (name == ""){
 		    error = "You did not enter your name";
 		  }
 		  else if (comments == ""){
@@ -101,7 +95,7 @@ return t.test(value);
 	</p>
 	<p>
 		<label>What is your email address?</label>
-		<input type="email" name="email" id="email" >
+		<input type="text" name="myMail" id="email" >
 	</p>
 	<p><span class="label">Rate your apartment farming skills</span>
         
@@ -132,7 +126,7 @@ return t.test(value);
 	</p>
 	<p>
 		
-		<input type="submit" value="Subscribe" onclick="valid(document.getElementById('form'))"> 
+		<input type="submit" value="Subscribe" onClick="ValidMail(); valid(form)"> 
 		
 	</p>
 </form>
