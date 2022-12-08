@@ -62,11 +62,11 @@ box-shadow: inset 0 0 10px rgba(255,255,255,.75);
 <script>
 function ValidMail() {
     let re =  /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-	let myMail = document.getElementById('email').value;
-     let valid = re.test(myMail);
+    let myMail = document.getElementById('email').value;
+    let valid = re.test(myMail);
 	if(!valid){ 
-	 alert('Адрес эл. почты введен неправильно!');
-}
+	alert('Адрес эл. почты введен неправильно!');
+        }
 }
 function valid(form){
 		let error = false;
@@ -80,8 +80,8 @@ function valid(form){
 		  }
 		    if(error){
 		        alert(error);
-		    }	
-	}	
+		   }	
+}	
 </script>
 
 
