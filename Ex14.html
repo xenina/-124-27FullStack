@@ -1,0 +1,144 @@
+<html>
+<head>
+<title>Ex14</title>
+<style>
+body {
+    display: flex;
+    justify-content: center;
+    height: -50px;
+    font-family: cursive;
+  }
+
+ input, textarea {
+    width: 100%;
+    padding: 5px;
+    outline: none;
+  }
+
+  label {
+    line-height: 30px;
+  }
+
+  input[type="submit"] {
+   transform: translate(1.2%);
+   padding: 3px;
+   margin-top: 0.6rem;
+   font-family: cursive;
+   font-weight: bold;
+  }
+
+ fieldset {
+   padding: 20px 40px;
+ }
+</style>
+
+</head>
+<body>
+<script>
+	 function ValidMail() {
+		let re =  /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+		let myMail = document.getElementById('email').value;
+		let valid = re.test(myMail);
+		if(!valid){ 
+		alert('Адрес эл. почты введен неправильно!');
+        }
+}
+
+	function valid(form){
+        let error = false;
+        let name = form.name.value;
+        let password = form.password.value;
+		
+		let topicMess = form.topicMess.value;
+		
+		let message = form.message.value;
+		
+        if (name == ""){
+            error = "Укажите имя";
+          }
+		  
+        if (password == ""){
+            error = "Укажите пароль";
+          }
+		
+		if	(password.length < 4){
+            error = "Пароль должен содержать не меньше 4 знаков";
+          }
+		  
+		  
+		  if (topicMess == ""){
+            error = "Укажите тему сообщения";
+          }
+		  
+		  if (message == ""){
+            error = "Напишите сообщение";
+          }
+		 if	(message.length < 10)	{
+            error = "Сообщение должно содержать не меньше 10 знаков";
+          }
+		  
+            if(error){
+                alert(error);
+             }
+	
+	}
+	
+	
+		let check = function() {
+			if (document.getElementById('password').value ==
+			document.getElementById('confirmPassword').value) {
+			document.getElementById('msg').style.color = 'green';
+			document.getElementById('msg').innerHTML = 'Пароли совпадают';
+  } 	else {
+			document.getElementById('msg').style.color = 'red';
+			document.getElementById('msg').innerHTML = 'Пароли не совпадают';
+  }			
+    }  
+	
+</script>
+
+
+
+		 <form id="form"  method="post" name="">
+		<fieldset>
+        <legend>Контактная информация</legend>
+        <div class="form-control">
+          <label>Ваше имя *</label>
+          <input type="text" name="name" id="name" >
+        </div>
+		
+		<div class="form-control">
+		<label>Пароль *</label>
+	    <input type="text" name="password" onkeyup='check()' id="password"/>
+		</label>
+		
+		<div class="form-control">
+		<label>Проверка пароля *
+		<input type="text" name="confirmPassword" onkeyup='check()' id="confirmPassword" > 
+		<span id='msg'></span>
+		</label>
+		
+		<div class="form-control">
+          <label>Электронный адрес *</label>
+          <input type="text" name="myMail" id="email">
+        </div>
+		
+		<div class="form-control">
+          <label>Тема сообщения *</label>
+          <input type="text" name="topicMess" id="topicMess">
+        </div>
+		
+		<div class="form-control">
+          <label>Сообщение</label>
+          <textarea
+            <input type = "text" name = "message" id="message" cols="30" rows="10" placeholder="Напишите сообщение"
+          ></textarea>
+        </div>
+		
+		<input type="submit" value="Отправить" onClick="ValidMail(); valid(form)">
+		<input type="submit" value="Очистить">
+      </fieldset>
+</form>
+
+</body>
+</html>
