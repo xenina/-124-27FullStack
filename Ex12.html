@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html>
  <head>
-  <meta charset="utf-8">
-  <title>Ex12</title>
-
-  </head>
- <body>
-<a href= "../js/пример PDF файла.pdf" onClick="return confirm('Для загрузки документа требуется программа Acrobat')">
-            Ссылка на пример PDF файла</a>.</br>
-			<a onMouseover="body.style.background='red'" onMouseOut="body.style.background='white'">Если навести 
-			 на меня мышку, то фон страницы станет красным!
-			
-			
- </body>
+ <meta charset="utf-8">
+ <title>Ex12</title>
+ </head>
+ <body id="demo">
+ 	<a href= "../tryUnd/пример.pdf" onClick="return confirm('Для загрузки документа требуется программа Acrobat')"> Ссылка на пример PDF файла</a>.</br>
+        <h1>Если навести на меня мышку, то фон страницы станет красным!</h1>
+ <script>
+	document.getElementById("demo").onmouseover = function() {mouseOver()};
+	document.getElementById("demo").onmouseout = function() {mouseOut()};
+function mouseOver() {
+  	document.getElementById("demo").style.backgroundColor = "red";
+}
+function mouseOut() {
+  	document.getElementById("demo").style.backgroundColor = "white";
+}
+</script>	
+</body>
 </html>
