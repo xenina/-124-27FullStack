@@ -1,17 +1,20 @@
 <html>
 <head>
+<meta charset="utf-8">
 <title>Ex9 document</title>
 <style> 
-body {
-color: red;
-background: #E7E6D8;
-}
+
 </style>
 </head>
-<body>
-
+<body id= "changeColor" onclick="myFunction()">
 <script>
-document.write("Спасибо, что пришли к нам на курсы!");
+
+function myFunction() {
+	document.getElementById("changeColor").style.color = "red";
+	document.getElementsByTagName("BODY")[0].style.backgroundColor = "#E7E6D8";
+}
+	document.write("Спасибо, что пришли к нам на курсы!"+"<br>");
+	document.write("Дата последней модификации документа:"+" "+document.lastModified+".");
 
 </script>
 </body>
